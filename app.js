@@ -4,7 +4,7 @@
 //   /* Days are not zero indexed,
 //      0 will give the last day of the previous month
 //      Since month are 0 indexed, we can use them in non zero
-//      indexed fashion. eg new Date(2022, 6, 0) -> 
+//      indexed fashion. eg new Date(2022, 6, 0) ->
 //      Not july but last day of june!
 //      */
 //   return new Date(year, month + 1, 0).getDate();
@@ -24,7 +24,7 @@
 
 // function validateMonth(input){
 //     if(isNaN(input)){
-//         return false; 
+//         return false;
 //     }
 //     if(input < 0 || input > 11) {
 //         return false;
@@ -50,8 +50,6 @@
 //         console.log("Cool down");
 //     }
 // } while(!validateTemperature(temperature));
-
-
 
 // function validateTemperature(input){
 //     if(isNaN(input)){
@@ -199,7 +197,145 @@ guiones. Ejemplo: X0523821F.
 //   return true;
 // }
 
-let dni = prompt("Enter DNI please");
-// Check if there are 8 digits
-/^[0-9]{8}$/.test(dni.substring(0,dni-length-2));
-// Check if last digit is a control character ?!
+// let dni = prompt("Enter DNI please");
+
+// function validateDNI(inputDNI) {
+//   // Check if there are 8 digits
+//   if(!(/^[0-9]{8}$/.test(inputDNI.substring(0, inputDNI.length - 1)))){
+//       console.log(inputDNI.substring(0, inputDNI.length - 1));
+//     return false;
+//   }
+//   // Check if last digit is a control character ?!
+//   if(!(/[a-z]/i.test(inputDNI.charAt(inputDNI.length - 1)))){
+//       return false;
+//   }
+//   return true;
+// }
+
+// console.log(validateDNI(dni));
+
+/* Exercise 10: genera 2 números aleatorios, entre 1 y 6, 
+para simular un juego de dados.
+Comprueba los resultados obtenidos y muestra por consola el ganador. 
+Por ejemplo: “Player 1 wins!”, o “draw”, en caso de empate */
+// let userNumber = -1;
+// do{
+//     userNumber = prompt("Enter a Number from 1 to 6");
+// } while (userNumber < 1 || userNumber > 6);
+
+// let computerNumber = 1+Math.floor(Math.random()*6);
+// console.log(computerNumber);
+
+// EJERCICIOS 1 TO 5
+
+// Ejercicio 1: Cuenta num letras en "Palindrome". Show each letter individually
+// const word = "palindrome";
+// // Try the lenght method
+// console.log(word.length);
+// for(let i = 0; i < word.length; i++){
+//     console.log(word[i]);
+// }
+
+// Ejercicio 2: Show the letters of the palindrome "no lemon, no melon" revers
+// let palindrome = "no lemon, no melon";
+// let palindromeReverse ="";
+// for(let i = palindrome.length-1; i >=0; i--){
+//     palindromeReverse+=palindrome[i];
+// }
+// console.log(palindromeReverse);
+
+// Ejercicio 3: Console.log a 4x4 grid of #
+// let msg="";
+// for(let i=0;i<4;i++){
+//     for (let i = 0; i < 4; i++) {
+//         msg+="#";
+//     }
+//     msg+="\n";
+// }
+// console.log(msg);
+
+// Ejercicio 4: Escribe 4 vars con temps de los ultimos 7 dias segun google
+// "https://api.openweathermap.org/data/2.5/weather?id=2514256&appid=502dff758bd2e181b8d6dab422fc99ae";
+// let malaga = 6359472;
+// let apiKey = "502dff758bd2e181b8d6dab422fc99ae";
+// let lat = 36.7585;
+// let lon = -4.3972;
+// const lastSevenDays = [];
+// function weatherBalloon(cityID) {
+//   var key = apiKey;
+//   fetch(
+//     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+//       lat +
+//       "&lon="+
+//       lon +
+//       "&appid=" +
+//       key
+//   )
+//     .then(function (resp) {
+//       return resp.json();
+//     }) // Convert data to json
+//     .then(function (data) {
+//       for(let i=0; i < 7; i++){
+//           lastSevenDays.push(data.daily[i].temp.day)
+//       }
+//       calcAverage();
+//     })
+//     .catch(function () {
+//       // catch any errors
+//     });
+// }
+
+// window.onload = function () {
+//   weatherBalloon(malaga);
+  
+// };
+
+// // "https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api}"
+
+
+
+// function calcAverage(){
+//     function kelvinToCelsius(tempInKelvin){
+//         return Math.floor(tempInKelvin - 273,15);
+//     }
+    
+//     for(let i=0; i < 7; i++){
+//        lastSevenDays[i]=kelvinToCelsius(lastSevenDays[i]);
+//         console.log("Day "+i+" temp: " + lastSevenDays[i]);
+//     }
+
+//     const startVal = 0;
+//     const sum = lastSevenDays.reduce((total, current)=>{
+//         return total+current;
+//     }, startVal);
+//     console.log("Sum of daily temp: " + sum);
+//     console.log("Weekly average: "+sum/7);
+// }
+
+
+// Exkurso: isPrime
+let num=5;
+
+function isPrime(num){
+    let isPrime=true;
+
+    for(let i = 2; i<num; i++){
+        if(num%i===0){
+            isPrime=false;
+            break;
+        }
+    }
+    return isPrime;    
+}
+
+console.log(isPrime(num));
+
+// Give all primes from 1 to 100
+let primeArr=[];
+let max = 100;
+for(let i=2; i<max; i++){
+    if(isPrime(i)){
+        primeArr.push(i);
+    }
+}
+console.table(primeArr);
