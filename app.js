@@ -238,11 +238,24 @@ Por ejemplo: “Player 1 wins!”, o “draw”, en caso de empate */
 
 // Ejercicio 2: Show the letters of the palindrome "no lemon, no melon" revers
 // let palindrome = "no lemon, no melon";
-// let palindromeReverse ="";
-// for(let i = palindrome.length-1; i >=0; i--){
-//     palindromeReverse+=palindrome[i];
+// let palindromeWithoutSpaces="";
+// for(let i = 0; i<palindrome.length; i++){
+//     if(palindrome[i]==" "){
+//         continue;
+//     }
+//     palindromeWithoutSpaces+=palindrome[i];
 // }
-// console.log(palindromeReverse);
+
+// let palindromeReverseWithoutSpaces="";
+// for(let i = palindrome.length-1; i>=0; i--){
+//     if(palindrome[i]==" "){
+//         continue;
+//     }
+//     palindromeReverseWithoutSpaces+=palindrome[i];
+// }
+// if(palindromeWithoutSpaces===palindromeReverseWithoutSpaces){
+//     console.log("Is a palindrome. So palindromeReverse == palindrome");
+// }
 
 // Ejercicio 3: Console.log a 4x4 grid of #
 // let msg="";
@@ -287,18 +300,16 @@ Por ejemplo: “Player 1 wins!”, o “draw”, en caso de empate */
 
 // window.onload = function () {
 //   weatherBalloon(malaga);
-  
+
 // };
 
 // // "https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api}"
-
-
 
 // function calcAverage(){
 //     function kelvinToCelsius(tempInKelvin){
 //         return Math.floor(tempInKelvin - 273,15);
 //     }
-    
+
 //     for(let i=0; i < 7; i++){
 //        lastSevenDays[i]=kelvinToCelsius(lastSevenDays[i]);
 //         console.log("Day "+i+" temp: " + lastSevenDays[i]);
@@ -312,30 +323,225 @@ Por ejemplo: “Player 1 wins!”, o “draw”, en caso de empate */
 //     console.log("Weekly average: "+sum/7);
 // }
 
-
 // Exkurso: isPrime
-let num=5;
+// let num=5;
 
-function isPrime(num){
-    let isPrime=true;
+// function isPrime(num){
+//     let isPrime=true;
 
-    for(let i = 2; i<num; i++){
-        if(num%i===0){
-            isPrime=false;
-            break;
-        }
-    }
-    return isPrime;    
+//     for(let i = 2; i<num; i++){
+//         if(num%i===0){
+//             isPrime=false;
+//             break;
+//         }
+//     }
+//     return isPrime;
+// }
+
+// console.log(isPrime(num));
+
+// // Give all primes from 1 to 100
+// let primeArr=[];
+// let max = 100;
+// for(let i=2; i<max; i++){
+//     if(isPrime(i)){
+//         primeArr.push(i);
+//     }
+// }
+// console.table(primeArr);
+
+// Ejercicio 5: Genera un num aleatorio entre 0 y 10
+// let min = 0;
+// let max = 10;
+// let random = Math.floor(Math.random()*(max-min+1))+min;
+// let userInput;
+// for(let i = 0; i < 3; i++){
+//     userInput=prompt("Guess the number. Intent "+(i+1));
+//     if (userInput===random){
+//         console.log("You win");
+//         break;
+//     } else if(i<2) {
+//         if(userInput<random){
+//             console.log("Try higher");
+//         } else {
+//             console.log("Try lower");
+//         }
+//     } else {
+//         console.log("Better luck next time. The random nr was: "+random);
+//     }
+// }
+
+// Ejercicio 6: Create a random password of 8 chars
+// let min = 97;
+// let max = 122;
+// let password = "";
+// let includeUpper = prompt("Include Uppers? y or n") == "n" ? false : true;
+// let includeNums = prompt("Include Nums? y or n") == "n" ? false : true;
+// let includeSymbols = prompt("Include Symbols? y or n") == "n" ? false : true;
+
+// if(includeUpper){
+//     min=65;
+// }
+// if(includeNums){
+//     min=48;
+// }
+
+// for(let i=0;i<8;i++){
+//     password+=String.fromCharCode(Math.floor(Math.random()*(max-min+1)+min));
+// }
+// console.log(password);
+
+// if (!withLowers && !withUppers && !withNumbers && !withSymbols) {
+//   withLowers = !withLowers;
+// }
+
+// let star = {
+//     name: "Polaris",
+//     constellation: "Ursa Minor",
+//     type: "Double/Cepheid",
+//     spectralClass: "F7",
+//     mag: 2.0
+// };
+
+// const person = {
+//     name: "Juan",
+//     lastName: "Beltran",
+//     age: 5000,
+//     address: {
+//         typeOfStreet: "Avenue",
+//         street: "Sunset Boulevard",
+//         number: "1",
+//         postalCode: 12345
+//     },
+//     sayHello: function() {
+//         console.log(`Hi I'm ${this.name}`)
+//     }
+// }
+
+// const login = {
+//     id: 1,
+//     state: {
+//         logged: true,
+//         online: false,
+//     },
+//     userName: "John",
+//     loginAt: new Date().getUTCDate(),
+//     toString: function(){
+//         console.log(`Id: ${this.id}, state: ${this.state.logged} & ${this.state.online}
+//         , username: ${this.userName}, last login at: ${this.loginAt}`);
+//     }
+// }
+
+// const productFactory = function(product_id, name, price, quantity) {
+//     let toString = function() {
+//         return `Id: ${this.product_id}, name: ${this.name}, price: ${this.price}, quantity: ${this.quantity}`;
+//     }
+//     return {product_id, name, price, quantity};
+// }
+
+// const shoppingCart = [
+//     productFactory(1, "Rubber Duck", 12, 1),
+//     productFactory(2, "Book about Programming", 35, 1),
+//     productFactory(3, "Fluffy Jacket", 200, 1),
+//     productFactory(4, "Nintendo Switch", 350, 1),
+// ]
+
+// // for(let i = 0; i<shoppingCart.length; i++){
+// //     console.log(shoppingCart[i].toString());
+// // }
+
+// // Solution without toString()
+// for(let i = 0; i < shoppingCart.length; i++){
+//     let msg="";
+//     for(let key of Object.keys(shoppingCart[i])){
+//         msg += `${key}: ${shoppingCart[i][key]}, `;
+//     }
+//     console.log(msg.substring(0,msg.length-2));
+// }
+
+// let numbers = [3,9,8,1,4];
+// for (let index = 0; index < numbers.length - 2; index++) {
+//     for (let j = 0; j < numbers.length - 1; j++) {
+//         if(numbers[j]>numbers[j+1]){
+//             let temp = numbers[j];
+//             numbers[j] = numbers[j+1];
+//             numbers[j+1] = temp;
+//         }
+//     }
+// }
+
+// Iterating arrays
+// The for/of loop works with iterables
+// let numbers = [1, 4, 6, 8],
+//   sum = 0;
+// for (let num of numbers) {
+//   sum += num;
+// }
+// console.log(sum); // => 19
+
+// // Iterating objects keys
+// // The for/in loop
+// let hero = {
+//   character: "Iron Man",
+//   name: "Tony Stark",
+// };
+
+// for (let key in hero) {
+//   console.log(hero[key]); // Print the value of each
+// }
+
+// ["Aragorn", "Gandalf", "Nazgul"].forEach((item, indexi, x, y) =>
+//   console.log(item + " " + indexi + " " + x + "  " + y)
+// );
+
+// "Soberano de Angmar en tiempos pasados".split(" ").forEach((letter) => {
+//   console.log(letter);
+// });
+
+// The map() method
+// returns a new array containing the values returned by the function
+// let numbers1 = [1, 2, 3];
+// let result1 = numbers1.map((item, index, array) => item * 2);
+// console.log(result1); // [2, 4, 6]
+
+// // The same done with forEach
+// let numbers2 = [1, 2, 3];
+// let numbers3 = [];
+// let result2 = numbers2.forEach((item) => numbers3.push(item * 2));
+// console.log(numbers3); // [2, 4, 6]
+
+// // The filter() method
+// // returns a sub-array.The function should be predicate (returns true or false).
+// let numbers = [15, 10, 5, 0, -5, -10];
+// let result = numbers.filter((x) => x < 5);
+// console.log(result); // => [0, -5, -10]; values less than 5
+
+// The every() and some() methods
+// both return true or false, and their function must be predicate
+// every requires a condition for all elements, some for some of them
+// let numbers = [1, 2, 3, 4, 5];
+// console.log(numbers.every((item, index, array) => item > 2)); // false
+// console.log(numbers.some((item, index, array) => item > 2)); // true
+
+// let result = numbers.reduce((accum, item, index, array) => accum + item, 0);
+// console.log(result); // 15
+// result = numbers.reduceRight((accum, item, index, array) => accum + item, 0);
+// console.log(result); // 15
+
+// Nested arrays
+let calendar = new Array(5); // 5 rows of the calendar
+for (let i = 0; i < calendar.length; i++) {
+  calendar[i] = new Array(7); // Each row has 7 columns
 }
-
-console.log(isPrime(num));
-
-// Give all primes from 1 to 100
-let primeArr=[];
-let max = 100;
-for(let i=2; i<max; i++){
-    if(isPrime(i)){
-        primeArr.push(i);
+// Initialize the array
+for (let row = 0, day = 1; row < calendar.length; row++) {
+  for (let col = 0; col < calendar[row].length; col++) {
+    if (day < 31) {
+      calendar[row][col] = day++;
+    } else if (day == 31) {
+      calendar[row][col] = day++;
+      day = 1;
     }
+  }
 }
-console.table(primeArr);
+console.log(calendar);
