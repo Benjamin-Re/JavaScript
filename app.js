@@ -529,19 +529,19 @@ Por ejemplo: “Player 1 wins!”, o “draw”, en caso de empate */
 // console.log(result); // 15
 
 // Nested arrays
-let calendar = new Array(5); // 5 rows of the calendar
-for (let i = 0; i < calendar.length; i++) {
-  calendar[i] = new Array(7); // Each row has 7 columns
-}
-// Initialize the array
-for (let row = 0, day = 1; row < calendar.length; row++) {
-  for (let col = 0; col < calendar[row].length; col++) {
-    if (day < 31) {
-      calendar[row][col] = day++;
-    } else if (day == 31) {
-      calendar[row][col] = day++;
-      day = 1;
-    }
-  }
-}
-console.log(calendar);
+// let calendar = new Array(5); // 5 rows of the calendar
+// for (let i = 0; i < calendar.length; i++) {
+//   calendar[i] = new Array(7); // Each row has 7 columns
+// }
+// // Initialize the array
+// for (let row = 0, day = 1; row < calendar.length; row++) {
+//   for (let col = 0; col < calendar[row].length; col++) {
+//     if (day < 31) {
+//       calendar[row][col] = day++;
+//     } else if (day == 31) {
+//       calendar[row][col] = day++;
+//       day = 1;
+//     }
+//   }
+// }
+// console.log(calendar);

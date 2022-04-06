@@ -56,46 +56,70 @@ function timeGreeting() {
 // A to F are Ascii codes 41 to 46
 // Nums are from 30 to 39
 function rainbowLog() {
-    let options = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    let hexArr = [];
-    for (let i = 0; i < 10; i++) {
-        let hexCode = "#";
-        for (let j = 0; j < 6; j++) {
-            let randomNum = randomGenerator(0, 15);
-            hexCode += options[randomNum];
-        }
-        hexArr.push(hexCode);
+  let options = ["A", "B", "C", "D", "E", "F", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  let hexArr = [];
+  for (let i = 0; i < 10; i++) {
+    let hexCode = "#";
+    for (let j = 0; j < 6; j++) {
+      let randomNum = randomGenerator(0, 15);
+      hexCode += options[randomNum];
     }
+    hexArr.push(hexCode);
+  }
 
-    // Console log "Hello World" in each hex color
-    for (let k = 0; k < hexArr.length; k++) {
-        let hexColor = hexArr[k];
-        console.log("%c Hello World", `color: ${hexColor}`);
-    }
+  // Console log "Hello World" in each hex color
+  for (let k = 0; k < hexArr.length; k++) {
+    let hexColor = hexArr[k];
+    console.log("%c Hello World", `color: ${hexColor}`);
+  }
 }
 
 /*Exercise 4*/
 // Ask the user for a DNI
 
 function dniValidator(dni) {
-    
-    const validDni = [];
+  const validDni = [];
 
-    // Validate the DNI and inform the user of the validation 
-    // Modulo the 8 DNI numbers by 23 and ...
-    // ... check if the char at the end of the dni ...
-    // ...equals the one from the table
-    // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
-    // T R W A G M Y F P D X  B   N  J  Z  S  Q  V  H  L  C  K  E
-    let rest = Number(dni.substring(0, 8)) % 23;
-    const restTable = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "H", "L", "C", "K", "E"];
-    if (restTable[rest] === dni.charAt(8)) {
-        // Save the DNI in a data structure if it is valid
-        console.log("DNI is valid");
-        validDni.push(dni);
-    } else {
-        console.log("DNI is invalid");
-    }
+  // Validate the DNI and inform the user of the validation
+  // Modulo the 8 DNI numbers by 23 and ...
+  // ... check if the char at the end of the dni ...
+  // ...equals the one from the table
+  // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+  // T R W A G M Y F P D X  B   N  J  Z  S  Q  V  H  L  C  K  E
+  let rest = Number(dni.substring(0, 8)) % 23;
+  const restTable = [
+    "T",
+    "R",
+    "W",
+    "A",
+    "G",
+    "M",
+    "Y",
+    "F",
+    "P",
+    "D",
+    "X",
+    "B",
+    "N",
+    "J",
+    "Z",
+    "S",
+    "Q",
+    "V",
+    "H",
+    "H",
+    "L",
+    "C",
+    "K",
+    "E",
+  ];
+  if (restTable[rest] === dni.charAt(8)) {
+    // Save the DNI in a data structure if it is valid
+    console.log("DNI is valid");
+    validDni.push(dni);
+  } else {
+    console.log("DNI is invalid");
+  }
 }
 
 /* Exercise 4 extra - random DNI */
@@ -107,32 +131,78 @@ function dniCreator() {
   }
   // Add the apropriate character to the end
   let rest = Number(dni.substring(0, 8)) % 23;
-  const restTable = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "H", "L", "C", "K", "E"];
+  const restTable = [
+    "T",
+    "R",
+    "W",
+    "A",
+    "G",
+    "M",
+    "Y",
+    "F",
+    "P",
+    "D",
+    "X",
+    "B",
+    "N",
+    "J",
+    "Z",
+    "S",
+    "Q",
+    "V",
+    "H",
+    "H",
+    "L",
+    "C",
+    "K",
+    "E",
+  ];
   dni += restTable[rest];
   console.log(dni);
   // Check if our random dni is really valid
   dniValidator(dni);
 }
 
-/*Exercis 5 -create matriculas(license plate?)*/
+/*Exercise 5 -create matriculas(license plate?)*/
 // A license plate consists of 4 numbers and 3 letters
-// No vocals or Q allowed
+// NO VOCALS OR Q ALLOWED
 
 function generateMatriculas(quantity) {
-  for(let j=0; j<quantity; j++){
+  for (let j = 0; j < quantity; j++) {
     let matricula = "";
     let chars = "";
     let nums = "";
-    const validChars = ["B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    const validChars = [
+      "B",
+      "C",
+      "D",
+      "F",
+      "G",
+      "H",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "P",
+      "R",
+      "S",
+      "T",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ];
     for (let i = 0; i < 4; i++) {
-      chars += validChars[randomGenerator(0, 21)];
+      chars += validChars[randomGenerator(0, validChars.length)];
     }
     for (let i = 0; i < 3; i++) {
       nums += randomGenerator(0, 9);
     }
     // Add both strings chars and nums
     chars += nums;
-  
+
     // Mix together the random legal chars and nums
     for (let i = 0; i < 7; i++) {
       matricula += chars[randomGenerator(0, 6)];
@@ -142,12 +212,11 @@ function generateMatriculas(quantity) {
 }
 
 /*Exercise 6 - dates*/
-
 function printDate() {
-
-// create 20 dates of various themes (programming, work out, haircut, ...)
-// Save the dates in an array
-  let dateArray = ["Time for your workout!",
+  // create 20 dates of various themes (programming, work out, haircut, ...)
+  // Save the dates in an array
+  let dateArray = [
+    "Time for your workout!",
     "Job interview, good luck!",
     "Programming bootcamp",
     "Get down to the barber for a haircut",
@@ -166,7 +235,8 @@ function printDate() {
     "Car is broken",
     "Go to the doctor for a blood analysis",
     "Take a PCR test",
-    "Bring kiddo to pediatrician"];
+    "Bring kiddo to pediatrician",
+  ];
 
   // Print a random date to the console
   console.log(dateArray[randomGenerator(0, 19)]);
@@ -174,8 +244,99 @@ function printDate() {
 
 // Print a date every 10 seconds
 // Using setInterval to call the function in an interval of 10 seconds
-let myIntervall = setInterval(printDate, 10000);
+// let myIntervall = setInterval(printDate, 10000);
 
 // Stop printing dates after 2 minutes using setTimeout to clear the Interval
 // after 2 minutes
-// setTimeout(()=>{clearInterval(myInterval)}, 120000);
+// setTimeout(()=>{clearInterval(myIntervall)}, 120000);
+
+/* Exercise 7 */
+// Save 100 random numbers between 0 and 500 in an array
+let randomArray = [];
+for (let i = 0; i < 100; i++) {
+  randomArray.push(randomGenerator(0, 500));
+}
+// Filter all odd numbers
+randomArray = randomArray.filter((x) => {
+  return x % 2 == 0;
+});
+
+// Sort the array from largest to smallest
+randomArray.sort((a, b) => {
+  if (a > b) {
+    return -1;
+  } else if (a < b) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
+
+// console.table(randomArray);
+
+/* Exercise 8 */
+
+// Play function
+let wallet = 500;
+// while(wallet > 0){
+//   playRound(100);
+// }
+
+
+function playRound(bet) {
+  // Ask player how much wants to bet
+  let currentBet = bet;
+  if (currentBet >= 500 || currentBet < 0) {
+    alert("Invalid bet");
+  } else {
+    // Generate two random cards and show them in the console
+    let playerCard = genCard("player");
+    let bankCard = genCard("bank");
+    let result = checkForWinner(playerCard, bankCard);
+    if (result > 0) {
+      console.log("Player wins");
+      wallet += currentBet;
+    } else if (result < 0) {
+      console.log("Bank card wins");
+      wallet -= currentBet;
+    } else {
+      console.log("Draw");
+    }
+    console.log(`Player wallet: ${wallet}`);
+  }
+}
+
+// Generates a card
+function genCard(user) {
+  const deck = [
+    ["spades", "clubs", "diamonds", "hearts"],
+    ["ACE", "KING", "QUEEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2],
+  ];
+  let suitNum = randomGenerator(0, 3);
+  let cardNum = randomGenerator(0, 12);
+  console.log(user+" card: "+deck[0][suitNum], deck[1][cardNum]);
+  let card = [suitNum, cardNum];
+  return card;
+}
+
+// Compare both cards and decide who won
+// Left highest card -> so check for if lower (i.e. to the left)
+function checkForWinner(card1, card2) {
+  if (card1[1] < card2[1]) {
+    return 1;
+  } else if (card2[1] < card1[1]) {
+    return -1;
+  } else {
+    // if both are same card check suite
+    // From highest to lowest:
+    // Spades, clubs, diamonds, hearts
+    if (card1[0] > card2[0]) {
+      return 1;
+    } else if (card2[0] > card1[0]) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+}
+
